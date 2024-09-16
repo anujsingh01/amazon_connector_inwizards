@@ -3,12 +3,23 @@
     'name': "Amazon Connector",
     'summary': "Connect odoo with amazon",
     'description': """
-        Connect odoo with amazon
+        This module enables seamless integration between Amazon Seller Central and Odoo, allowing Amazon sellers to manage their orders, inventory, and shipments directly from Odoo.
+        Key Feature :-
+            Import Amazon orders (FBA and FBM) into Odoo automatically.
+            Synchronize inventory levels between Odoo and Amazon.
+            Track order fulfillment statuses and manage shipping information.
+            Automate invoice generation for Amazon orders.
+            Supports multiple Amazon marketplace accounts.
+            Real-time stock updates from Odoo to Amazon.
+            Manage both FBA and FBM orders from a single interface in Odoo.
     """,
-    'author': "Inwizards Software Technology",
-    'website': "https://www.inwizards.com/",
-    'category': 'Uncategorized',
-    'version': '0.1',
+    'category': 'Sale',
+    'author': 'Emenu',
+    'price' : '450',
+    'currency' : 'EUR', 
+    'maintainer' : '',
+    'website': '',  
+    "license": "AGPL-3",
     'depends': ['base', 'sale', 'stock', 'board', 'web'],
     'data': [
         'security/ir.model.access.csv',
@@ -70,4 +81,14 @@
     
         
 }
+
+
+
+
+
+
+
+
+
+
 
