@@ -1,5 +1,5 @@
 from odoo import _, api, exceptions, fields, models
-from ...odoo_amazon_connector import const
+from ...amazon_connector_inwizards import const
 
 class AddAmazonFulfillmentCenter(models.TransientModel):
     _name = "add.amazon.fulfillment.center"

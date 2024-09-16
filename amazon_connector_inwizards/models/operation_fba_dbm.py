@@ -11,7 +11,7 @@ import json
 from odoo.exceptions import UserError
 import random
 import pandas as pd
-# from odoo_amazon_connector import amazon_api
+# from amazon_connector_inwizards import amazon_api
 from ...amazon_connector_inwizards import amazon_api
 import base64
 import os

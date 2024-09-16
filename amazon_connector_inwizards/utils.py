@@ -9,7 +9,7 @@ from werkzeug.urls import url_encode, url_join, url_parse
 from odoo import _
 from odoo.exceptions import UserError, ValidationError
 
-from ..odoo_amazon_connector import const, amazon_api
+from ..amazon_connector_inwizards import const, amazon_api
 import requests
 from datetime import timedelta
 from datetime import datetime

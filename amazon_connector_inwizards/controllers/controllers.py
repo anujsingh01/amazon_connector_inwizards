@@ -12,7 +12,7 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.http import request
 from odoo.tools import hmac as hmac_tool
 
-from ...odoo_amazon_connector import utils as amazon_utils
+from ...amazon_connector_inwizards import utils as amazon_utils
 
 
 
@@ -76,7 +76,7 @@ class AmazonInfoController(http.Controller):
             # account.action_update_available_marketplaces()
         except (UserError, ValidationError) as e:
             return request.render(
-                'odoo_amazon_connector.authorization_error',
+                'amazon_connector_inwizards.authorization_error',
                 qcontext={'error_message': e['name'], 'account_url': account_url},
             )
 
@@ -91,7 +91,7 @@ class AmazonInfoController(http.Controller):
         :return: The URL of the account's form view.
         :rtype: str
         """
-        action = request.env.ref('odoo_amazon_connector.list_amazon_account_action', raise_if_not_found=False)
+        action = request.env.ref('amazon_connector_inwizards.list_amazon_account_action', raise_if_not_found=False)
         get_params_string = url_encode({
             'id': account_id,
             'model': 'amazon.info.account',

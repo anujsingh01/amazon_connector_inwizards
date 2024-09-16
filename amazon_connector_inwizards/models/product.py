@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 import json
 import requests
-from ...odoo_amazon_connector import amazon_api, utils
+from ...amazon_connector_inwizards import amazon_api, utils
 
 class AmazonProductEPT(models.Model):
     _name = "amazon.product.ept"

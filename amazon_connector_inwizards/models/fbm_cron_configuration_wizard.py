@@ -1,5 +1,5 @@
 from odoo import models, fields
-# from odoo.addons.odoo_amazon_connector.models.operation_fba_dbm import OperationFbaFbm
+# from odoo.addons.amazon_connector_inwizards.models.operation_fba_dbm import OperationFbaFbm
 # from .operation_fba_dbm import OperationsFBAFBM
 from datetime import datetime, timezone
 
