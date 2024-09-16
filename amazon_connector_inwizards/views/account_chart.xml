@@ -17,7 +17,7 @@
         </record>
 
 
-        <record id="view_amazon_transaction_type_form" model="ir.ui.view">
+        <record id="view_amazon_transaction_type_form"  model="ir.ui.view">
                 <field name="name">amazon.transaction.line.ept.form</field>
                 <field name="model">amazon.transaction.line.ept</field>
                 <field name="arch" type="xml">
