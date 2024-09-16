@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="amazon_amazon_seller_ept_tree" model="ir.ui.view">
+            <field name="name">amazon.seller.ept.tree</field>
+            <field name="model">amazon.seller.ept</field>
+            <field name="arch" type="xml">
+                <tree create="1">
+                    <field name="name"/>
+                    <field name="merchant_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="amazon_amazon_seller_ept_form" model="ir.ui.view">
+            <field name="name">amazon.seller.ept.form</field>
+            <field name="model">amazon.seller.ept</field>
+            <field name="arch" type="xml">
+                <form string="Amazon Seller MWS Credential" create="false">
+                    <header>
+                        <button name="load_marketplace" string="Load Marketplace" class="oe_highlight" type="object" invisible="not active"/>
+                        <field name="is_sp_api_amz_seller" invisible="1"/>
+                        <button name="active_iap_database" string="Active IAP Databases" class="oe_highlight" type="object"/>
+    <!--                    <button name="migrate_to_sp_api" string="Migrate To SP API"-->
+    <!--                            class="oe_highlight" type="object" invisible="is_sp_api_amz_seller"/>-->
+                        <button name="re_authorisation_to_sp_api" string="SP API Re-Authorisation" class="oe_highlight" type="object" invisible="not is_sp_api_amz_seller"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived Seller" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_button_box oe_inline" position="inside" name="button_box">
+                            <button type="object" name="amazon_instance_list" class="oe_stat_button" icon="fa-tasks">Marketplace
+                            </button>
+                            <field name="active" invisible="1"/>
+    
+                            <!-- <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-eye-slash" invisible="not active">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text ">Archive</span>
+                                    <span class="o_stat_text">Seller</span>
+                                </div>
+                            </button>
+    
+                            <field name="active" invisible="1"/>
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-eye" invisible="active">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Un-Archive</span>
+                                    <span class="o_stat_text">Seller</span>
+                                </div>
+                            </button> -->
+    
+                            <button class="oe_stat_button" name="list_of_seller_cron" type="object" icon="fa-tasks" invisible="cron_count == 0" groups="base.group_system">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="cron_count"/> Schedulers
+                                    </span>
+                                </div>
+                            </button>
+    
+                            <button type="object" name="global_cron_configuration_action" class="oe_stat_button" icon="fa-clock-o" groups="base.group_system">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">FBA &amp; FBM</span>
+                                    <span class="o_stat_text">Scheduler</span>
+    
+                                </div>
+                            </button>
+    
+                            <button type="object" name="fba_cron_configuration_action" class="oe_stat_button" icon="fa-clock-o" invisible="amazon_selling == 'FBM'" groups="base.group_system">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">FBA</span>
+                                    <span class="o_stat_text">Scheduler</span>
+                                </div>
+                            </button>
+    
+                            <button type="object" name="fbm_cron_configuration_action" class="oe_stat_button" icon="fa-clock-o" invisible="amazon_selling == 'FBA'" groups="base.group_system">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">FBM</span>
+                                    <span class="o_stat_text">Scheduler</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id" widget="selection" groups="base.group_multi_company" readonly="1"/>
+                                <field name="amazon_selling" readonly="1"/>
+    
+                            </group>
+                            <group>
+                                <field name="country_id" readonly="1"/>
+                                <field name="is_european_region" invisible="1"/>
+                                <field name="is_north_america_region" invisible="1"/>
+                                <field name="amazon_program" invisible="amazon_selling == 'FBM' or not is_european_region" readonly="1"/>
+                                <field name="is_european_region" invisible="1"/>
+                            </group>
+                        </group>
+                        <separator string="Amazon Warehouse" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                        <field name="amz_warehouse_ids" widget="many2many_tags" nolabel="1" domain="[('seller_id','=',False)]" readonly="1"/>
+                        <notebook>
+                            <page name="marketplaces" string="Marketplace">
+                                <field name="marketplace_ids" colspan="4" nolabel="1" domain="[('seller_id','=',False)]">
+                                    <tree create="false" delete="false">
+                                        <field name="name" readonly="1"/>
+                                        <field name="country_id" readonly="1"/>
+                                        <field name="currency_id" readonly="1"/>
+                                    </tree>
+                                    <form string="Marketplace">
+                                        <group>
+                                            <group>
+                                                <field name="name" readonly="1"/>
+                                                <field name="seller_id" readonly="1"/>
+                                                <field name="country_id" readonly="1"/>
+                                                <field name="currency_id" readonly="1"/>
+                                            </group>
+                                            <group>
+                                                <field name="lang_id" readonly="1"/>
+                                                <field name="market_place_id" readonly="1"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+    
+                            <page string="Last Sync Settings">
+                                <group>
+                                    <group>
+                                        <field name="removal_order_report_last_sync_on" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="shipping_report_last_sync_on" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="inventory_report_last_sync_on" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="settlement_report_last_sync_on"/>
+                                    </group>
+                                    <group>
+                                        <field name="fba_recommended_removal_report_last_sync_on" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="fba_order_last_sync_on" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="fba_pending_order_last_sync_on" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="return_report_last_sync_on"/>
+                                        <field name="last_inbound_shipment_status_sync" groups="amazon_ept.group_amazon_fba_ept,amazon_ept.group_amazon_fba_and_fbm_ept"/>
+                                        <field name="vcs_report_last_sync_on"/>
+                                        <field name="cancel_fbm_order_last_sync_on"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="kanban_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="amazon_amazon_seller_ept_action" model="ir.actions.act_window">
+            <field name="name">Amazon Sellers</field>
+            <field name="res_model">amazon.seller.ept</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="domain">[('amz_is_outbound_order','=',True)]</field> -->
+        </record>
+
+        <!-- <menuitem name="Seller" id="seller_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_seller_ept_action"/> -->
+
+
+        <record id="res_config_amazon_seller" model="ir.ui.view">
+            <field name="name">res.config.amazon.seller.form</field>
+            <field name="model">res.config.amazon.seller</field>
+            <field name="arch" type="xml">
+                <form string="Configure Seller" class="oe_form_configuration">
+                    <group string="Seller Information">
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="merchant_id" required="1" string="Merchant Token"/>
+                            <field name="amazon_selling" required="1"/>
+                        </group>
+                        <group>
+                            <field name="country_id" domain="[('amazon_marketplace_code','!=',False)]" widget="selection" required="1"/>
+                            <field name="company_id" widget="selection"/>
+                            <field name="is_amz_program"  string="Are you register with Amazon Program" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Create" type="object" name="test_amazon_connection" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_config_amazon_seller_action" model="ir.actions.act_window">
+            <field name="name">Seller</field>
+            <field name="res_model">res.config.amazon.seller</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+           
+        </record>
+
+    </data>
+</odoo>

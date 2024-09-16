@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record id="amzn_subscription_form_view" model="ir.ui.view">
+            <field name="name">amzn.subscription.form</field>
+            <field name="model">amzn.subscription</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <!-- <field name="merchant_id" placeholder="Seller Id"/> -->
+                            <field name="email" />
+                        </group>
+                        <group>
+                            <field name="country_id" />
+                            <field name="mobile"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button string="Activate Amazon Connector" name="activate_connector" type="object"  class="oe_highlight" />
+                        or 
+                        <button name="cancel" string="Cancel" special="cancel" class="oe_link"/> 
+                    </footer>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="amzn_subscription_action" model="ir.actions.act_window">
+            <field name="name">Amazon Registration</field>
+            <field name="res_model">amzn.subscription</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

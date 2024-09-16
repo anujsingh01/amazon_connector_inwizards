@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="add_amazon_fulfillment_center_form" model="ir.ui.view">
+            <field name="name">add.amazon.fulfillment.center.form</field>
+            <field name="model">add.amazon.fulfillment.center</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <label for="seller_id" string="Seller"/>
+                        <field name="seller_id" colspan="1"/>
+
+                        <separator  colspan="4"/>
+                        <group >
+                            <field name="is_european_region" invisible="1"/>
+                            <field name="is_north_america_region" invisible="1"/>
+                            <field name="amazon_program"  invisible="not is_european_region"/>
+                            <field name="amazon_usa_program" invisible="not is_north_america_region"/>
+                        </group>
+                        <group >
+                            <field name="store_inventory_country" required="amazon_program in ('efn')" invisible="amazon_program not in ('efn')"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Active Listing Marketplace"  invisible="not seller_id">
+                            <field name="amazon_fr" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program"/>
+                            <field name="amazon_nl" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+                            <field name="amazon_pl" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+                            <field name="amazon_de" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+                            <field name="amazon_es" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+                            <field name="amazon_se" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+                            <field name="amazon_com_tr" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+                            <field name="amazon_it" readonly="amazon_program in ('pan_eu')" invisible="not amazon_program" />
+
+                            <field name="amazon_com_mx" invisible="not is_north_america_region"/>
+                            <field name="amazon_ca" invisible="not is_north_america_region"/>
+                            <field name="amazon_com" invisible="not is_north_america_region"/>
+                        </group>
+                        
+                        <group name="czech_republic" string="Other PAN European Country" invisible="amazon_program not in ('pan_eu')">
+                            <field name="czech_republic" />
+                        </group>
+
+                        <group  string="Store Inventory Country" invisible="amazon_program not in ('mci', 'efn_mci')">
+                            <field name="amazon_fr_inv" />
+                            <field name="amazon_pl_inv" />
+                            <field name="amazon_de_inv" />
+                            <field name="amazon_es_inv" />
+                            <field name="amazon_com_tr_inv" />
+                            <field name="czech_republic_inv" />
+                            <field name="amazon_it_inv" />
+                        </group>
+                    </group>
+                    <group invisible="amazon_program not in ('pan_eu', 'mci')">
+                        <field name="amazon_uk" />
+                    </group>
+
+                    <footer>
+                        <button string="CREATE MARKETPLACE" name="create_marketplace" type="object" class="btn-primary" />
+                        <button string="Cancel" class="oe_highlight" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="add_amazon_fulfillment_center_action" model="ir.actions.act_window">
+            <field name="name">Amazon Marketplaces</field>
+            <field name="res_model">add.amazon.fulfillment.center</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- <menuitem
+            id="amazon_fulfillment_center_root_menuitem"
+            name="Add More Marketplace"
+            action="add_amazon_fulfillment_center_action"
+            parent="amazon_connector_inwizards.menu_root"
+            /> -->
+    </data>
+</odoo>

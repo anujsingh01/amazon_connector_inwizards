@@ -1,0 +1,240 @@
+<odoo>
+    <record id="amazon_transaction_type_1" model="amazon.transaction.type">
+        <field name="amazon_code">Amazon_Commission</field>
+        <field name="name">Amazon Commission</field>
+    </record>
+    <record id="amazon_transaction_type_2" model="amazon.transaction.type">
+        <field name="amazon_code">Shipping_Chargeback</field>
+        <field name="name">Shipping Chargeback</field>
+    </record>
+    <record id="amazon_transaction_type_3" model="amazon.transaction.type">
+        <field name="amazon_code">Disposal_Complete</field>
+        <field name="name">Disposal Complete</field>
+    </record>
+    <record id="amazon_transaction_type_4" model="amazon.transaction.type">
+        <field name="amazon_code">Subscription_Fee</field>
+        <field name="name">Subscription Fee</field>
+    </record>
+    <record id="amazon_transaction_type_5" model="amazon.transaction.type">
+        <field name="amazon_code">Current_Reserve_Amount</field>
+        <field name="name">Current Reserve Amount</field>
+    </record>
+    <record id="amazon_transaction_type_6" model="amazon.transaction.type">
+        <field name="amazon_code">Previous_Reserve_Amount_Balance</field>
+        <field name="name">Previous Reserve Amount Balance</field>
+    </record>
+    <record id="amazon_transaction_type_7" model="amazon.transaction.type">
+        <field name="amazon_code">Amazon_Refund_Commission</field>
+        <field name="name">Amazon Refund Commission</field>
+    </record>
+    <record id="amazon_transaction_type_8" model="amazon.transaction.type">
+        <field name="amazon_code">Giftwrap_Chargeback</field>
+        <field name="name">Giftwrap Chargeback</field>
+    </record>
+    <record id="amazon_transaction_type_9" model="amazon.transaction.type">
+        <field name="amazon_code">Amazon_Commission_on_Shipping</field>
+        <field name="name">Amazon Commission on Shipping</field>
+    </record>
+    <record id="amazon_transaction_type_10" model="amazon.transaction.type">
+        <field name="amazon_code">Balance_Adjustment</field>
+        <field name="name">Balance Adjustment</field>
+    </record>
+    <record id="amazon_transaction_type_11" model="amazon.transaction.type">
+        <field name="amazon_code">Coupon_Clip_Fee</field>
+        <field name="name">Coupon Clip Fee</field>
+    </record>
+    <record id="amazon_transaction_type_12" model="amazon.transaction.type">
+        <field name="amazon_code">Coupon_Redemption_Fee</field>
+        <field name="name">Coupon Redemption Fee</field>
+    </record>
+    <record id="amazon_transaction_type_13" model="amazon.transaction.type">
+        <field name="amazon_code">Fixed_Closing_Fee</field>
+        <field name="name">Fixed Closing Fee</field>
+    </record>
+    <record id="amazon_transaction_type_14" model="amazon.transaction.type">
+        <field name="amazon_code">FreshInbound_Transportation_Fee</field>
+        <field name="name">FreshInbound Transportation Fee</field>
+    </record>
+    <record id="amazon_transaction_type_15" model="amazon.transaction.type">
+        <field name="amazon_code">High_Volume_Listing_Fee</field>
+        <field name="name">High Volume Listing Fee</field>
+    </record>
+    <record id="amazon_transaction_type_16" model="amazon.transaction.type">
+        <field name="amazon_code">Imaging_Services_Fee</field>
+        <field name="name">Imaging Services Fee</field>
+    </record>
+    <record id="amazon_transaction_type_17" model="amazon.transaction.type">
+        <field name="amazon_code">MFN_Postage_Fee</field>
+        <field name="name">MFN Postage Fee</field>
+    </record>
+    <record id="amazon_transaction_type_18" model="amazon.transaction.type">
+        <field name="amazon_code">Referral_Fee</field>
+        <field name="name">Referral Fee</field>
+    </record>
+    <record id="amazon_transaction_type_19" model="amazon.transaction.type">
+        <field name="amazon_code">Sales_Tax_Collection_Fee</field>
+        <field name="name">Sales Tax Collection Fee</field>
+    </record>
+    <record id="amazon_transaction_type_20" model="amazon.transaction.type">
+        <field name="amazon_code">Subscription</field>
+        <field name="name">Subscription</field>
+    </record>
+    <record id="amazon_transaction_type_21" model="amazon.transaction.type">
+        <field name="amazon_code">Textbook_Rental_Buyout_Fee</field>
+        <field name="name">Textbook Rental Buyout Fee</field>
+    </record>
+    <record id="amazon_transaction_type_22" model="amazon.transaction.type">
+        <field name="amazon_code">Textbook_Rental_Extension_Fee</field>
+        <field name="name">Textbook Rental Extension Fee</field>
+    </record>
+    <record id="amazon_transaction_type_23" model="amazon.transaction.type">
+        <field name="amazon_code">Textbook_Rental_Service_Fee</field>
+        <field name="name">Textbook Rental Service Fee</field>
+    </record>
+    <record id="amazon_transaction_type_24" model="amazon.transaction.type">
+        <field name="amazon_code">Variable_Closing_Fee</field>
+        <field name="name">Variable Closing Fee</field>
+    </record>
+    <record id="amazon_transaction_type_25" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_per_Unit_Fulfillment_Fee</field>
+        <field name="name">FBA per Unit Fulfillment Fee</field>
+    </record>
+    <record id="amazon_transaction_type_26" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Weight_based_Fee</field>
+        <field name="name">FBA Weight based Fee</field>
+    </record>
+    <record id="amazon_transaction_type_27" model="amazon.transaction.type">
+        <field name="amazon_code">Removal_Complete</field>
+        <field name="name">Removal Complete</field>
+    </record>
+    <record id="amazon_transaction_type_28" model="amazon.transaction.type">
+        <field name="amazon_code">Reversal_Reimbursement</field>
+        <field name="name">Reversal Reimbursement</field>
+    </record>
+    <record id="amazon_transaction_type_29" model="amazon.transaction.type">
+        <field name="amazon_code">Liquidations</field>
+        <field name="name">Liquidations</field>
+    </record>
+    <record id="amazon_transaction_type_30" model="amazon.transaction.type">
+        <field name="amazon_code">Compensated_Clawback</field>
+        <field name="name">Compensated Clawback</field>
+    </record>
+    <record id="amazon_transaction_type_31" model="amazon.transaction.type">
+        <field name="amazon_code">Missing_From_Inbound_Clawback</field>
+        <field name="name">Missing From Inbound Clawback</field>
+    </record>
+    <record id="amazon_transaction_type_32" model="amazon.transaction.type">
+        <field name="amazon_code">Warehouse_Lost_Manual</field>
+        <field name="name">Warehouse Lost Manual</field>
+    </record>
+    <record id="amazon_transaction_type_33" model="amazon.transaction.type">
+        <field name="amazon_code">Warehouse_Damage</field>
+        <field name="name">Warehouse Damage</field>
+    </record>
+    <record id="amazon_transaction_type_34" model="amazon.transaction.type">
+        <field name="amazon_code">Missing_from_Inbound_Reimbursement</field>
+        <field name="name">Missing from Inbound Reimbursement</field>
+    </record>
+    <record id="amazon_transaction_type_35" model="amazon.transaction.type">
+        <field name="amazon_code">StorageRenewalBilling</field>
+        <field name="name">StorageRenewalBilling</field>
+    </record>
+    <record id="amazon_transaction_type_36" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Transportation_Fee</field>
+        <field name="name">FBA Transportation Fee</field>
+    </record>
+    <record id="amazon_transaction_type_37" model="amazon.transaction.type">
+        <field name="amazon_code">FBAPerOrderFulfillmentFee</field>
+        <field name="name">FBAPerOrderFulfillmentFee</field>
+    </record>
+    <record id="amazon_transaction_type_38" model="amazon.transaction.type">
+        <field name="amazon_code">Warehouse_Damage_Exception</field>
+        <field name="name">Warehouse Damage Exception</field>
+    </record>
+    <record id="amazon_transaction_type_39" model="amazon.transaction.type">
+        <field name="amazon_code">Bubblewrap_Fee</field>
+        <field name="name">Bubblewrap Fee</field>
+    </record>
+    <record id="amazon_transaction_type_40" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Customer_Return_PerOrder_Fee</field>
+        <field name="name">FBA Customer Return PerOrder Fee</field>
+    </record>
+    <record id="amazon_transaction_type_41" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_CustomerReturn_PerUnit_Fee</field>
+        <field name="name">FBA CustomerReturn PerUnit Fee</field>
+    </record>
+    <record id="amazon_transaction_type_42" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_CustomerReturn_WeightBased_Fee</field>
+        <field name="name">FBA CustomerReturn WeightBased Fee</field>
+    </record>
+    <record id="amazon_transaction_type_43" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Disposal_Fee</field>
+        <field name="name">FBA Disposal Fee</field>
+    </record>
+    <record id="amazon_transaction_type_44" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Fulfillment_COD_Fee</field>
+        <field name="name">FBA Fulfillment COD Fee</field>
+    </record>
+    <record id="amazon_transaction_type_45" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Inbound_Convenience_Fee</field>
+        <field name="name">FBA Inbound Convenience Fee</field>
+    </record>
+    <record id="amazon_transaction_type_46" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Inbound_Defect_Fee</field>
+        <field name="name">FBA Inbound Defect Fee</field>
+    </record>
+    <record id="amazon_transaction_type_47" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Inbound_Transportation_Fee</field>
+        <field name="name">FBA Inbound Transportation Fee</field>
+    </record>
+    <record id="amazon_transaction_type_48" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Inbound_TransportationProgram_Fee</field>
+        <field name="name">FBA Inbound TransportationProgram Fee</field>
+    </record>
+    <record id="amazon_transaction_type_49" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_LongTermStorage_Fee</field>
+        <field name="name">FBA LongTermStorage Fee</field>
+    </record>
+    <record id="amazon_transaction_type_50" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Removal_Fee</field>
+        <field name="name">FBA Removal Fee</field>
+    </record>
+    <record id="amazon_transaction_type_51" model="amazon.transaction.type">
+        <field name="amazon_code">FBA_Storage_Fee</field>
+        <field name="name">FBA Storage Fee</field>
+    </record>
+    <record id="amazon_transaction_type_52" model="amazon.transaction.type">
+        <field name="amazon_code">Fulfillment_Fee</field>
+        <field name="name">Fulfillment Fee</field>
+    </record>
+    <record id="amazon_transaction_type_53" model="amazon.transaction.type">
+        <field name="amazon_code">Fulfillment_Network_Fee</field>
+        <field name="name">Fulfillment Network Fee</field>
+    </record>
+    <record id="amazon_transaction_type_54" model="amazon.transaction.type">
+        <field name="amazon_code">Labeling_Fee</field>
+        <field name="name">Labeling Fee</field>
+    </record>
+    <record id="amazon_transaction_type_55" model="amazon.transaction.type">
+        <field name="amazon_code">Opaque_Bagging_Fee</field>
+        <field name="name">Opaque Bagging Fee</field>
+    </record>
+    <record id="amazon_transaction_type_56" model="amazon.transaction.type">
+        <field name="amazon_code">Polybagging_Fee</field>
+        <field name="name">Polybagging Fee</field>
+    </record>
+    <record id="amazon_transaction_type_57" model="amazon.transaction.type">
+        <field name="amazon_code">SSOF_Fulfillment_Fee</field>
+        <field name="name">SSOF Fulfillment Fee</field>
+    </record>
+    <record id="amazon_transaction_type_58" model="amazon.transaction.type">
+        <field name="amazon_code">Taping_Fee</field>
+        <field name="name">Taping Fee</field>
+    </record>
+    <record id="amazon_transaction_type_59" model="amazon.transaction.type">
+        <field name="amazon_code">UnitFulfillment_Fee</field>
+        <field name="name">UnitFulfillment Fee</field>
+    </record>
+
+    
+</odoo>

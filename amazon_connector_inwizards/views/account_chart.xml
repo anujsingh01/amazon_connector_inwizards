@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        
+        <!-- amazon Chart of account -->
+
+        <record id="amazon_chart_of_account_tree" model="ir.ui.view">
+            <field name="name">amazon.transaction.line.ept.tree</field>
+            <field name="model">amazon.transaction.line.ept</field>
+            <field name="arch" type="xml">
+                <tree create="1">
+                    <field name="transaction_type_id"/>
+                    <field name="account_id"/>
+                    <field name="analytic_account_id"/> 
+                    <field name="tax_id"/> 
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_amazon_transaction_type_form" model="ir.ui.view">
+                <field name="name">amazon.transaction.line.ept.form</field>
+                <field name="model">amazon.transaction.line.ept</field>
+                <field name="arch" type="xml">
+                    <form>
+                        <sheet>
+                            <group>
+                                <field name="display_name"/>
+                                <field name="amazon_code"/>
+                                <field name="transaction_type_id"/>
+                                
+                                <field name="transaction_type_id"/>
+                                <field name="analytic_account_id"/>
+                                <field name="tax_id"/>
+                                <field name="account_id"/>
+                                <field name="seller_id"/>
+
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+        <record id="amazon_chart_of_account_action" model="ir.actions.act_window">
+            <field name="name">Amazon Chart Of Account's</field>
+            <field name="res_model">amazon.transaction.line.ept</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+       
+       <!-- amazon Chart of account -->
+        
+       <!-- amazon transaction type -->
+
+        <record id="view_amazon_transaction_type_tree" model="ir.ui.view">
+                <field name="name">amazon.transaction.type.tree</field>
+                <field name="model">amazon.transaction.type</field>
+                <field name="arch" type="xml">
+                    <tree>
+                        <field name="amazon_code"/>
+                        <field name="name"/>
+                        <field name="is_reimbursement"/>
+                        <field name="create_date"/>
+                        <field name="create_uid"/>
+                        <field name="write_date"/>
+                        <field name="write_uid"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="view_amazon_transaction_type_form" model="ir.ui.view">
+                <field name="name">amazon.transaction.type.form</field>
+                <field name="model">amazon.transaction.type</field>
+                <field name="arch" type="xml">
+                    <form>
+                        <sheet>
+                            <group>
+                                <field name="amazon_code"/>
+                                <field name="name"/>
+                                <field name="is_reimbursement"/>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+        
+        <record id="action_amazon_transaction_type" model="ir.actions.act_window">
+            <field name="name">Amazon Transaction Types</field>
+            <field name="res_model">amazon.transaction.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+         <!-- amazon transaction type -->
+
+        <!-- <menuitem id="menu_amazon_transaction_type" name="Amazon Transaction Types" parent="configuration_main_menu" action="action_amazon_transaction_type"/>
+
+        <menuitem name="Amazon Chart of Account" id="amazon_chart_of_account"  parent="configuration_main_menu"  action="amazon_chart_of_account_action"/> -->
+
+    </data>
+</odoo>

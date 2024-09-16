@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="amazon_amazon_removal_order_ept_tree" model="ir.ui.view">
+            <field name="name">amazon.removal.order.ept.tree</field>
+            <field name="model">amazon.removal.order.ept</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state == 'plan_approved'" create="1">
+                    <field name="name"/>
+                    <field name="instance_id" readonly="state != 'draft'"/>
+                    <field name="warehouse_id"/>
+                    <field name="ship_address_id" readonly="state != 'draft'"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record> 
+
+        <record id="amazon_amazon_removal_order_ept_form" model="ir.ui.view">
+            <field name="name">amazon.removal.order.ept.form</field>
+            <field name="model">amazon.removal.order.ept</field>
+            <field name="arch" type="xml">
+                <form string="Removal Order" version="7.0" create="0">
+                    <header>
+                        <button name="create_removal_order" invisible="state != 'draft'" string="Create Removal Order" class="oe_highlight" type="object"/>
+    
+                        <button name="get_unsellable_products" string="Get Unsellable Products" class="oe_highlight" type="object" invisible="removal_disposition == 'Return' or state != 'draft'"/>
+                        <button name="import_product_for_removal_order" invisible="state != 'draft'" string="Import Product(CSV)" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,plan_approved"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" position="inside" name="button_box">
+                            <button name="list_of_transfer_removal_pickings" class="oe_stat_button" icon="fa-truck" type="object">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="removal_count"/>
+                                        Pickings
+                                    </span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" class="oe_inline" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="instance_id" widget="selection" readonly="state != 'draft'" />
+                                <field name="warehouse_id" widget="selection" groups="base.group_multi_company" readonly="state != 'draft'" invisible="removal_disposition == 'Disposal'" required="removal_disposition == 'Return'" />
+                                <field name="disposition_location_id"/>
+                                <!-- after finish -->
+                                <!-- <field name="removal_order_picking_ids" invisible="1"/> -->
+                            </group>
+                            <group>
+                                <field name="ship_address_id" required="1" readonly="state != 'draft'"/>
+                                <field name="removal_disposition" required="1"/>
+                                <field name="company_id" widget="selection" groups="base.group_multi_company" readonly="state != 'draft'"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Removal Plan Items">
+                                <!-- after finish -->
+                                <!-- <field name="removal_order_lines_ids" nolabel="1" colspan="4">
+                                    <form string="Shipment plan Item">
+                                        <group>
+                                            <group>
+                                                <field name="amazon_product_id"/>
+                                                <field name="seller_sku"/>
+                                            </group>
+                                            <group>
+                                                <field name="sellable_quantity"/>
+                                                <field name="unsellable_quantity"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                    <tree editable="bottom">
+                                        <field name="amazon_product_id" required="1" domain="[('fulfillment_by','=','FBA'),('instance_id','=',parent.instance_id)]" on_change="onchange_product_id(parent.removal_disposition)"/>
+                                        <field name="removal_disposition" invisible="1"/>
+                                        <field name="sellable_quantity" required="removal_disposition != 'Disposal'" readonly="removal_disposition == 'Disposal'"/>
+                                        <field name="unsellable_quantity" required="1"/>
+                                        <field name="seller_sku"/>
+                                    </tree>
+                                </field> -->
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record> 
+        
+        <record id="amazon_removal_orders_action" model="ir.actions.act_window">
+            <field name="name">Removal Orders</field>
+            <field name="res_model">amazon.removal.order.ept</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- <menuitem name="Removal" id="removal_root_menuitem"  parent="amazon_fba_root_menuitem"/>
+        <menuitem name="Removal Orders" id="removal_orders_root_menuitem"  parent="removal_root_menuitem"  action="amazon_removal_orders_action"/> -->
+        
+    </data>
+</odoo>

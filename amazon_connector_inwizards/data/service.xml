@@ -1,0 +1,12 @@
+<odoo>
+    <record id="renew_subscription_cron" model="ir.cron">
+        <field name="name">Renew Subscription</field>
+        <field name="model_id" ref="model_customer_enrollment"/>
+        <field name="state">code</field>
+        <field name="code">model._validate_till_date()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">2</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

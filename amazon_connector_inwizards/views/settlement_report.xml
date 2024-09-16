@@ -1,0 +1,65 @@
+<odoo>
+
+   <record id="action_settlement_report_tree" model="ir.ui.view">
+            <field name="name">settlement.report.tree</field>
+            <field name="model">settlement.report</field>
+            <field name="arch" type="xml">
+                <tree create="1">
+                    <field name="name"/>
+                    <field name="requested_date"/>
+                    <field name="start_date"/> 
+                    <field name="end_date"/> 
+
+                    <field name="instance_id"/>
+                    <field name="seller_id"/>
+                    <field name="state"/> 
+                </tree>
+            </field>
+    </record>
+
+    <record id="action_settlement_report_form" model="ir.ui.view">
+                <field name="name">settlement.report.form</field>
+                <field name="model">settlement.report</field>
+                <field name="arch" type="xml">
+                    <form>
+                    <header>
+
+                        <button name="download_statement" string="Download Excel Report" class="oe_highlight" invisible="state == 'submitted'" type="object"/>
+                        <button name="process_statement" string="Process Statement" invisible="state  in ['done', 'in_progress']" class="oe_highlight" type="object"/>
+                        <button name="view_statement" string="View Statement" invisible="state == 'submitted'"  class="oe_highlight" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submitted,in_progress,done"/>
+                    </header>
+                        <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="requested_date"/>
+                                <field name="seller_id"/>
+                                <field name="instance_id"/>
+                                <field name="attachment_id"/>
+                            </group>
+                            <group>
+                                <field name="currency_id"/>
+                                <field name="report_id"/>
+                                <field name="report_document_id"/>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>    
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+   <record id="action_settlement_report_action" model="ir.actions.act_window">
+            <field name="name">Amazon Settlement Reports</field>
+            <field name="res_model">settlement.report</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <menuitem id="menu_settlement_report" name="Settlement Reports" parent="configuration_main_menu" action="action_settlement_report_action"/> -->
+</odoo>

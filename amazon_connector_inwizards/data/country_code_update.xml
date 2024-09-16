@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="base.in" model="res.country">
+            <field name="amazon_marketplace_code">IN</field>
+        </record>
+        <record id="base.br" model="res.country">
+            <field name="amazon_marketplace_code">BR</field>
+        </record>
+        <record id="base.ca" model="res.country">
+            <field name="amazon_marketplace_code">CA</field>
+        </record>
+        <record id="base.pl" model="res.country">
+            <field name="amazon_marketplace_code">PL</field>
+        </record>
+        <record id="base.de" model="res.country">
+            <field name="amazon_marketplace_code">DE</field>
+        </record>
+        <record id="base.se" model="res.country">
+            <field name="amazon_marketplace_code">SE</field>
+        </record>
+        <record id="base.es" model="res.country">
+            <field name="amazon_marketplace_code">ES</field>
+        </record>
+        <record id="base.fr" model="res.country">
+            <field name="amazon_marketplace_code">FR</field>
+        </record>
+        <record id="base.it" model="res.country">
+            <field name="amazon_marketplace_code">IT</field>
+        </record>
+        <record id="base.nl" model="res.country">
+            <field name="amazon_marketplace_code">NL</field>
+        </record>
+        <record id="base.sa" model="res.country">
+            <field name="amazon_marketplace_code">SA</field>
+        </record>
+        <record id="base.tr" model="res.country">
+            <field name="amazon_marketplace_code">TR</field>
+        </record>
+        <record id="base.uk" model="res.country">
+            <field name="amazon_marketplace_code">UK</field>
+        </record>
+        <record id="base.au" model="res.country">
+            <field name="amazon_marketplace_code">AU</field>
+        </record>
+        <record id="base.jp" model="res.country">
+            <field name="amazon_marketplace_code">JP</field>
+        </record>
+        <record id="base.sg" model="res.country">
+            <field name="amazon_marketplace_code">SG</field>
+        </record>
+        <record id="base.be" model="res.country">
+            <field name="amazon_marketplace_code">BE</field>
+        </record>
+        <record id="base.cz" model="res.country">
+            <field name="amazon_marketplace_code">CZ</field>
+        </record>
+        <record id="base.eg" model="res.country">
+            <field name="amazon_marketplace_code">EG</field>
+        </record>
+        <record id="base.eg" model="res.country">
+            <field name="amazon_marketplace_code">EG</field>
+        </record>
+        <record id="base.mx" model="res.country">
+            <field name="amazon_marketplace_code">MX</field>
+        </record>
+        <record id="base.za" model="res.country">
+            <field name="amazon_marketplace_code">ZA</field>
+        </record>
+        <!-- <record id="base.gbp" model="res.country">
+            <field name="amazon_marketplace_code">GB</field>
+        </record> -->
+        <record id="base.us" model="res.country">
+            <field name="amazon_marketplace_code">US</field>
+        </record>
+    </data>
+</odoo>

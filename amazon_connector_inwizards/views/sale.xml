@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="amazon_view_quotation_tree_with_onboarding_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="partner_shipping_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="amazon_view_quotation_tree_with_onboarding_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="partner_shipping_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="amazon_sale_order_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <tree create="1">
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="partner_id"/>
+                    <field name="partner_shipping_id"/>
+                    <field name="amount_untaxed" sum="Total amount Untaxed"/>
+                    <field name="amount_total" sum="Total Tax Included"/>
+                    <field name="amz_fulfillment_action"/>
+                    <field name="amz_fulfillment_policy"/>
+                    <field name="amz_fulfullment_order_status"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="amazon_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="warehouse_id_ept" string="Warehouse" optional="hide"/>
+                </xpath>
+                <button name="action_quotation_send" position="before">
+                    <field name="warehouse_id" invisible="1"/>
+                </button>
+                <button name="action_confirm" position="after">
+                    <button name="create_outbound_shipment" string="Create Outbound Shipment" type="object" invisible="state not in ['sale', 'done'] or not order_has_fba_warehouse or amz_is_outbound_order or is_fba_pending_order"/>
+                </button>
+                <field name="warehouse_id" position="after">
+                    <field name="amz_is_outbound_order" invisible="1"/>
+                    <field name="order_has_fba_warehouse" invisible="1"/>
+                    <field name="is_fba_pending_order" invisible="1"/>
+                    <field name="buyer_requested_cancellation" invisible="1"/>
+                </field>
+                <xpath expr="//div[hasclass('o_td_label')]" position="attributes">
+                    <attribute name="groups"/>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                  <attribute name="groups"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="after">
+                    <div class="badge-pill badge-danger float-right" invisible="not buyer_requested_cancellation">Buyer Requested Cancellation</div>
+                    <br/>
+                    <br/>
+                    <div class="badge text-bg-info float-right" invisible="not buyer_requested_cancellation or buyer_cancellation_reason in (False,'')">
+                        <field name="buyer_cancellation_reason" readonly="1"/>
+                    </div>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="cancel_order_in_amazon" string="Cancel Order In Amazon" type="object" invisible="not amz_instance_id or amz_fulfillment_by != 'FBM' or state not in ['cancel'] or is_amazon_canceled" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//page[@name='other_information']" position="after">
+                    <page string="Amazon Information" invisible="not amz_instance_id">
+                        <group>
+                            <group>
+                                <field name="amz_seller_id" readonly="1"/>
+                                <field name="amz_instance_id" readonly="1"/>
+                                <field name="amz_fulfillment_by" readonly="1"/>
+                                <field name="amz_shipment_report_id" readonly="1"/>
+                                <field name="amz_shipment_service_level_category" readonly="1"/>
+                            </group>
+                            <group>
+    <!--                            <field name="amz_sales_order_report_id" readonly="1"/>-->
+                                <field name="amz_order_reference" readonly="1"/>
+                                <field name="is_amazon_canceled" widget="boolean_toggle" readonly="1"/>
+                                <field name="is_business_order" widget="boolean_toggle" readonly="1"/>
+                                <field name="is_prime_order" widget="boolean_toggle" readonly="1"/>
+                                <field name="amz_instance_country_code" invisible="1"/>
+                            </group>
+                        </group>
+                        <group invisible="not amz_is_outbound_order">
+                            <group>
+                                <field name="amz_fulfillment_action" readonly="state !='draft' or 1" required="amz_is_outbound_order"/>
+                                <field name="amz_fulfillment_policy" required="amz_is_outbound_order" readonly="state != 'draft' or 1"/>
+                                <field name="amz_fulfullment_order_status" string="Fulfillment Order Status" readonly="1"/>
+                                <field name="exported_in_amazon" readonly="1"/>
+                                <field name="amz_is_outbound_order" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="amz_displayable_date_time" required="amz_is_outbound_order" readonly="state != 'draft' or 1"/>
+                                <field name="amz_shipment_service_level_category" required="amz_is_outbound_order" readonly="state != 'draft' or 1"/>
+                                <field name="notify_by_email" readonly="state != 'draft' or 1"/>
+                            </group>
+                            <group>
+                                <field name="amz_delivery_start_time" readonly="1"/>
+                                <field name="amz_delivery_end_time" readonly="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+           
+            </field>
+        </record>
+
+        <record id="amazon_sale_order_action" model="ir.actions.act_window">
+            <field name="name">Amazon Sales Outbound Order</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('amz_is_outbound_order','=',True)]</field>
+        </record>
+
+
+        <!-- <menuitem name="Outbound" id="outbound_root_menuitem"  parent="amazon_fba_root_menuitem" />
+        <menuitem name="Outbound Orders" id="outbound_orders_root_menuitem"  parent="outbound_root_menuitem"  action="amazon_sale_order_action"/> -->
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="feed_submission_history_action" model="ir.actions.act_window">
+            <field name="name">Feed Submission History</field>
+            <field name="res_model">feed.submission.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- <menuitem name="Feed Submission History" id="feed_submission_history_menuitem"  parent="amazon_logs_root_menuitem" action="feed_submission_history_action"/> -->
+
+        <record id="view_feed_submission_history_tree" model="ir.ui.view">
+            <field name="name">feed.submission.history.tree</field>
+            <field name="model">feed.submission.history</field>
+            <field name="arch" type="xml">
+                <tree string="Feed Submission History">
+                    <field name="feed_result_id"/>
+                    <field name="feed_submit_date"/>
+                    <field name="feed_result_date"/>
+                    <field name="feed_type"/>
+                    <field name="instance_id"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

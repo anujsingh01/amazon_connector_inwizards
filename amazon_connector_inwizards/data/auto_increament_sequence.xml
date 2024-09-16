@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_active_product_listing" model="ir.sequence">
+            <field name="name">Active Product Listing Report</field>
+            <field name="code">active.product.listing.report.ept</field>
+            <field name="prefix">APL-</field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

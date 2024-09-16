@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="amazon_connector_inwizards.sales_dashboard" owl="1">
+        <div class="o_main_container">
+            <!-- Include the Chart.js CDN -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+            <div class="o_dashboard_container">
+                <!-- Navigation Header -->
+                <div class="o_dashboard_navbar">
+                    <span class="o_dashboard_nav_title">Navigate Amazon</span>
+                    <div class="o_dashboard_nav_search">
+                        <input type="text" placeholder="Search..." class="o_dashboard_search_input"/>
+                    </div>
+                    <div class="o_dashboard_nav_pagination">
+                        <span>1-1 / 1</span>
+                        <button class="o_dashboard_nav_button">&lt;</button>
+                        <button class="o_dashboard_nav_button">&gt;</button>
+                    </div>
+                </div>
+
+                <!-- Cards Wrapper -->
+                <div class="o_dashboard_cards_wrapper">
+                    <t t-foreach="instances" t-as="instance" t-key="instance.id">
+                        <div class="card card-custom">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h3 class="card_title">Amazon.in <br></br><t t-esc="instance.name"/></h3>
+                                    <div class="dropdowns">
+                                        <select class="o_dashboard_select" t-att-id="'fulfillment-select-' + instance.id">
+                                            <option value="both">Fulfillment By Both</option>
+                                            <option value="fba">Fulfillment By FBA</option>
+                                            <option value="fbm">Fulfillment By FBM</option>
+                                        </select>
+                                        <select t-att-id="'period-select-' + instance.id" class="o_dashboard_select">
+                                            <option value="current_week">Current Week</option>
+                                            <option value="current_month">Current Month</option>
+                                            <option value="current_year">Current Year</option>
+                                            <option value="all">All</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <canvas t-att-id="'chart-' + instance.id"></canvas>
+                                <hr/>
+                                <div class="card-metrics">
+                                    <div class="metric" t-on-click="() => this.open_amazon_product(instance.id)">
+                                        <span class="metric-value"><t t-esc="instance.product_count"/></span>
+                                        <span class="metric-label">Products</span>
+                                    </div>
+                                    <div class="metric" t-on-click="() => this.open_sales_order(instance.id, 'FBM')">
+                                        <span class="metric-value"><t t-esc="instance.FBM_order_count"/></span>
+                                        <span class="metric-label">FBM Orders</span>
+                                    </div>
+                                    <div class="metric" t-on-click="() => this.open_sales_order(instance.id, 'FBA')">
+                                        <span class="metric-value"><t t-esc="instance.FBA_order_count"/></span>
+                                        <span class="metric-label">FBA Orders</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+    <!-- product.product_template_only_form_view -->
+        <record id="amazon_amazon_stock_adjustment_config_tree" model="ir.ui.view">
+            <field name="name">amazon.stock.adjustment.config.tree</field>
+            <field name="model">amazon.stock.adjustment.config</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="seller_id" required="1" width="10px"/>
+                    <field name="group_id" required="1" width="10px"/>
+                    <field name="is_send_email" widget="boolean_toggle" width="10px"/>
+                    <field name="email_template_id" required="is_send_email" invisible="not is_send_email" width="10px"/>
+                    <field name="location_id" required="not is_send_email" invisible="is_send_email" width="10px"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="amazon_amazon_stock_adjustment_config_action" model="ir.actions.act_window">
+            <field name="name">FBA Stock Adjustment Configuration</field>
+            <field name="res_model">amazon.stock.adjustment.config</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="domain">[('amz_is_outbound_order','=',True)]</field> -->
+        </record>
+
+        <!-- <menuitem name="FBA Stock Adjustment" id="fba_stock_adjustment_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_stock_adjustment_config_action"/> -->
+
+        <record id="amazon_amazon_adjustment_reason_group_tree" model="ir.ui.view">
+            <field name="name">amazon.adjustment.reason.group.tree</field>
+            <field name="model">amazon.adjustment.reason.group</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="amazon_amazon_adjustment_reason_group_form" model="ir.ui.view">
+            <field name="name">amazon.adjustment.reason.group.form</field>
+            <field name="model">amazon.adjustment.reason.group</field>
+            <field name="arch" type="xml">
+                <form string="Report Request History">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <field name="reason_code_ids" nolabel="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="amazon_amazon_adjustment_reason_group_action" model="ir.actions.act_window">
+            <field name="name">FBA Stock Adjustment Reasons</field>
+            <field name="res_model">amazon.adjustment.reason.group</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- <menuitem name="FBA Stock Adjustment Reasons" id="fba_stock_adjustment_reason_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_adjustment_reason_group_action"/> -->
+
+    </data>
+</odoo>

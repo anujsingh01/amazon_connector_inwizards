@@ -1,0 +1,123 @@
+<odoo>
+    <data>
+
+        <menuitem name="Amazon" id="amazon_connector_inwizards.menu_root" />
+
+        <menuitem name="Configuration" id="configuration_main_menu" 
+        parent="amazon_connector_inwizards.menu_root" sequence="20"/>
+
+        <menuitem id="menu_amazon_transaction_type" name="Amazon Transaction Types" parent="configuration_main_menu" action="action_amazon_transaction_type"/>
+
+        <menuitem name="Amazon Chart of Account" id="amazon_chart_of_account"  parent="configuration_main_menu"  action="amazon_chart_of_account_action"/>
+
+        <menuitem name="FBA Stock Adjustment" id="fba_stock_adjustment_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_stock_adjustment_config_action"/>
+
+        <menuitem name="FBA Stock Adjustment Reasons" id="fba_stock_adjustment_reason_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_adjustment_reason_group_action"/>
+
+        <menuitem name="Auto Sales Workflow" id="auto_sale_workflow_root_menuitem"  parent="configuration_main_menu"  action="amazon_sale_workflow_process_ept_action"/>
+
+        <menuitem id="menu_amazon_marketplace_list" name="Amazon MarketPlace list" parent="configuration_main_menu" action="action_amazon_market_place_list"/>
+
+        <menuitem name="Marketplaces" id="marketplace_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_instance_ept_action" sequence="2"/>
+
+        <menuitem name="Removal Orders" id="removal_orders_sub_menuitem"  parent="configuration_main_menu"  action="amazon_removal_order_config_ept_action"/>
+        
+        <menuitem name="FulFillment Centers" id="fulfillment_center_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_fulfillment_center_action"/>
+
+        <menuitem name="FBA" id="amazon_fba_root_menuitem"  parent="amazon_connector_inwizards.menu_root" sequence="5"/>
+        
+
+        <menuitem name="Outbound" id="outbound_root_menuitem"  parent="amazon_fba_root_menuitem" />
+        <menuitem name="Outbound Orders" id="outbound_orders_root_menuitem"  parent="outbound_root_menuitem"  action="amazon_sale_order_action"/>
+
+        <menuitem name="Seller" id="seller_root_menuitem"  parent="configuration_main_menu"  action="amazon_amazon_seller_ept_action" sequence="1"/>
+
+        
+
+        <menuitem name="Setting" id="amazon_connector_setting_menu" parent="configuration_main_menu"
+        action="action_amazon_connector_config_settings" sequence="0"/>
+
+        <menuitem id="menu_settlement_report" name="Settlement Reports" parent="configuration_main_menu" action="action_settlement_report_action"/>
+
+
+        <menuitem name="FBA Inventory" id="fba_inventory_root_menuitem"  parent="amazon_fba_root_menuitem" />
+        <menuitem name="Inventory Reports" id="inventory_report_root_menuitem"  parent="fba_inventory_root_menuitem"  action="amazon_amazon_fba_live_stock_report_ept_action"/>
+
+        
+
+        <menuitem name="Stock Adjustment" id="amazon_stock_adjustment_report_history_root_menuitem"  parent="fba_inventory_root_menuitem"  action="amazon_amazon_stock_adjustment_report_history_action"/>
+
+        <menuitem name="Orders and Returns" id="amazon_orders_and_returns_menuitem"  parent="amazon_fba_root_menuitem" />
+
+        <menuitem name="Customer Return Reports" id="customer_return_reports_menuitem"  parent="amazon_orders_and_returns_menuitem"  action="sale_order_return_report_action"/>
+
+        <menuitem name="Shipment Reports" id="amazon_shipment_reports_menuitem"  parent="amazon_orders_and_returns_menuitem"  action="shipping_report_request_history_form_action"/>
+
+        <menuitem name="Inbound" id="inbound_root_menuitem"  parent="amazon_fba_root_menuitem" />
+        <menuitem name="Inbound Shipments" id="amazon_inbound_shipment_ept_root_menuitem"  parent="inbound_root_menuitem"  action="amazon_amazon_inbound_shipment_ept_action"/>
+        
+        <menuitem name="Transfers" id="amazon_transfer_root_menuitem"  parent="inbound_root_menuitem"  action="amazon_transfer_action"/>
+
+        
+        <menuitem name="Inbound Shipment Plans" id="inbound_shippment_plan_root_menuitem"  parent="inbound_root_menuitem"  action="amazon_inbound_shipment_plan_ept_action"/>
+
+        <menuitem name="Removal" id="removal_root_menuitem"  parent="amazon_fba_root_menuitem"/>
+        <menuitem name="Removal Orders" id="removal_orders_root_menuitem"  parent="removal_root_menuitem"  action="amazon_removal_orders_action"/>
+
+        <menuitem name="Removal Order Reports" id="amazon_removal_order_report_history_root_menuitem"  parent="removal_root_menuitem"  action="amazon_amazon_removal_order_report_history_action"/>
+
+        <menuitem name="FBM" id="amazon_fbm_root_menuitem"  parent="amazon_connector_inwizards.menu_root" sequence="4"/>
+        <menuitem name="Order Data Queue" id="order_data_queue_menuitem"  parent="amazon_fbm_root_menuitem" action="amazon_shipped_order_data_queue_action"/>
+
+        
+
+        <menuitem name="Logs" id="amazon_logs_root_menuitem"  parent="amazon_connector_inwizards.menu_root" sequence="7"/>
+        <menuitem name="Log Lines" id="log_lines_data_menuitem"  parent="amazon_logs_root_menuitem" action="log_lines_data_action"/>
+
+        <menuitem name="Feed Submission History" id="feed_submission_history_menuitem"  parent="amazon_logs_root_menuitem" action="feed_submission_history_action"/>
+
+        
+
+        <menuitem name="Operations" id="operations_root_menuitem"  parent="amazon_connector_inwizards.menu_root"  action="fba_fbm_operations_action" sequence="6"/>
+
+        <menuitem name="Products" id="products_root_menuitem" parent="amazon_connector_inwizards.menu_root" sequence="2"/>
+        <menuitem name="Products Variants" id="products_sub_menuitem"  parent="products_root_menuitem" action="product_variant_action"/>
+
+        <menuitem name="Active Product List Reports" id="active_product_listing_menuitem"  parent="products_root_menuitem" action="active_product_listing_report_ept_action"/>
+
+        <menuitem name="Sales" id="amazon_sale_menuitem"  parent="amazon_connector_inwizards.menu_root" sequence="3"/>
+
+        <menuitem name="FBM" id="fbm_menuitem"  parent="amazon_sale_menuitem" />
+
+        <menuitem name="Quotations" id="quotations_menuitem"  parent="fbm_menuitem" action="sale.action_quotations_with_onboarding" />
+        <menuitem name="Orders" id="fbm_orders_menuitem"  parent="fbm_menuitem" action="sale.action_orders" />
+        <menuitem name="Delivery Orders" id="fbm_delivery_orders_menuitem"  parent="fbm_menuitem" action="stock.action_picking_tree_all" />
+
+
+        <menuitem name="FBA" id="fba_menuitem"  parent="amazon_sale_menuitem" />
+        <menuitem name="Quotations" id="fba_quotations_menuitem"  parent="fba_menuitem" action="fba_sale_quotation_action" />
+        <menuitem name="Orders" id="fba_orders_menuitem"  parent="fba_menuitem" action="sale.action_orders" />
+
+        <menuitem name="Orders Moves" id="fba_orders_moves_menuitem"  parent="fba_menuitem" action="amazon_stock_move_inherit" />
+        <menuitem name="Returns Moves" id="fba_returns_moves_menuitem"  parent="fba_menuitem" action="amazon_stock_move_inherit" />
+        <menuitem name="Waiting Availibility Moves" id="fba_waiting_availibility_moves_menuitem"  parent="fba_menuitem" action="amazon_stock_move_inherit" />
+
+
+        <menuitem name="Invoice and Settlement" id="invoice_settlement_menuitem"  parent="amazon_sale_menuitem" />
+        <menuitem name="Invoices" id="invoices_menuitem"  parent="invoice_settlement_menuitem" action="account.action_move_out_invoice_type"/>
+        
+        <menuitem name="Seller Ratings" id="seller_rating_menuitem"  parent="amazon_sale_menuitem" />
+        <menuitem name="Ratings" id="seller_rating_submenuitem"  parent="seller_rating_menuitem"  action="amazon_rating_action"/>
+
+        <menuitem name="Amazon Account" id="amazon_account_menu" parent="amazon_connector_inwizards.menu_root" action="list_amazon_account_action" sequence="100"/>
+
+        <menuitem
+            id="dashboard_root_menuitem"
+            name="Dashboard"
+            parent="amazon_connector_inwizards.menu_root"
+            sequence="0"
+            action="amzn_subscription_action"
+        />
+
+    </data>
+</odoo>

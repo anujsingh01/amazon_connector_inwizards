@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+    <!-- product.product_template_only_form_view -->
+        <record id="product_template_only_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.product.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='default_code']" position="after">
+                    <field name="map_sku_id" widget="many2many_tags" />
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
