@@ -76,7 +76,7 @@
             '/amazon_connector_inwizards/static/src/components/custom.css',
             'amazon_connector_inwizards/static/src/components/amazon_dashboard.js',
             'amazon_connector_inwizards/static/src/components/amazon_dashboard.xml',
-            '/amazon_connector_inwizards/static/src/components/content_page.css',
+            'amazon_connector_inwizards/static/src/components/content_page.css',
             
         ],
         'web.assets_frontend': [
