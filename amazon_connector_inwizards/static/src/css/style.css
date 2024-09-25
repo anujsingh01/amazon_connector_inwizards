@@ -1,0 +1,137 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Disable the browser's default scrollbars */
+}
+
+.o_main_container {
+    height: 100%;
+    overflow-y: auto; /* Enable scrolling for the main container */
+}
+
+.o_dashboard_container {
+    padding: 20px;
+}
+
+.o_dashboard_navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.o_dashboard_nav_title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.o_dashboard_nav_search {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.o_dashboard_search_input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.o_dashboard_nav_pagination {
+    display: flex;
+    align-items: center;
+}
+
+.o_dashboard_nav_pagination span {
+    margin-right: 10px;
+}
+
+.o_dashboard_nav_button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Flexbox Container for Cards */
+.o_dashboard_cards_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items at the start */
+    gap: 20px; /* Adjust spacing between cards */
+}
+
+/* Card Custom Styling */
+.card-custom {
+    flex: 1 1 calc(33.333% - 20px); /* Sets width to 1/3 of the row, minus margin */
+    max-width: calc(33.333% - 20px); /* Prevents expanding beyond 1/3 of the row */
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+    height: auto; /* Adjust height if necessary */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px; /* Add gap between elements */
+}
+
+h3.card_title {
+    color: #017e84;
+    flex: 0 0 auto; /* Ensure it does not shrink or grow */
+}
+
+.dropdowns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping if space is insufficient */
+    flex: 1; /* Take up remaining space */
+}
+
+.o_dashboard_select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    flex: 1; /* Allow the dropdown to take up available space */
+}
+
+.card-content {
+    margin-top: 10px;
+}
+
+.card-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.metric {
+    text-align: center;
+    flex: 1;
+    border: 1px solid #ccc;
+}
+
+.metric-value {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    color: #017e84;
+}
+
+.metric-label {
+    font-size: 12px;
+    color: #017e84;
+}
