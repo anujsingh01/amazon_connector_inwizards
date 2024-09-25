@@ -79,7 +79,7 @@
             
         ],
         'web.assets_frontend': [
-            '/amazon_connector_inwizards/static/src/components/content_page.css',
+            'amazon_connector_inwizards/static/src/components/content_page.css',
         ],
     },
     
