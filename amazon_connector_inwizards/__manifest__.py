@@ -14,7 +14,7 @@
             Manage both FBA and FBM orders from a single interface in Odoo.
     """,
     'category': 'Sale',
-    'author': 'Emenu',
+    'author': 'https://www.inwizards.com/',
     'price' : '450',
     'currency' : 'EUR', 
     'maintainer' : '',
@@ -76,7 +76,7 @@
             '/amazon_connector_inwizards/static/src/components/custom.css',
             'amazon_connector_inwizards/static/src/components/amazon_dashboard.js',
             'amazon_connector_inwizards/static/src/components/amazon_dashboard.xml',
-            '/amazon_connector_inwizards/static/src/components/content_page.css',
+            'https://www.inwizards.com/css/style.css',
         ],
     },
     
