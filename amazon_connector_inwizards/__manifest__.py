@@ -78,7 +78,7 @@
             'amazon_connector_inwizards/static/src/components/amazon_dashboard.xml',
             '/amazon_connector_inwizards/static/src/components/content_page.css',
         ],
-    }
+    },
     
     "images" : ['static/description/banner.gif'],
         
