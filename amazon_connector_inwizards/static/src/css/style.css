@@ -1,137 +1,234 @@
-html, body {
-    height: 100%;
+body {
     margin: 0;
-    padding: 0;
-    overflow: hidden; /* Disable the browser's default scrollbars */
+    line-height: 1.5;
 }
 
-.o_main_container {
-    height: 100%;
-    overflow-y: auto; /* Enable scrolling for the main container */
+*,
+::after,
+::before {
+    box-sizing: border-box;
 }
 
-.o_dashboard_container {
-    padding: 20px;
+h1 {
+    font-size: 36px;
 }
 
-.o_dashboard_navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+.content_set h1,
+.content_set h2,
+.content_set h3,
+.content_set h4,
+.content_set h5,
+.content_set h6,
+.content_set p {
+    font-family: "Arial";
+    margin-top: 0;
     margin-bottom: 20px;
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 5px;
+    color: #101320;
 }
 
-.o_dashboard_nav_title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.o_dashboard_nav_search {
-    display: flex;
-    align-items: center;
-    width: 40%;
-}
-
-.o_dashboard_search_input {
-    flex-grow: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.o_dashboard_nav_pagination {
-    display: flex;
-    align-items: center;
-}
-
-.o_dashboard_nav_pagination span {
-    margin-right: 10px;
-}
-
-.o_dashboard_nav_button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-/* Flexbox Container for Cards */
-.o_dashboard_cards_wrapper {
+.row {
+    margin: 0 -10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Align items at the start */
-    gap: 20px; /* Adjust spacing between cards */
 }
 
-/* Card Custom Styling */
-.card-custom {
-    flex: 1 1 calc(33.333% - 20px); /* Sets width to 1/3 of the row, minus margin */
-    max-width: calc(33.333% - 20px); /* Prevents expanding beyond 1/3 of the row */
-    box-sizing: border-box; /* Ensures padding is included in width calculation */
-    height: auto; /* Adjust height if necessary */
+.row [class*="col-md-"] {
+    padding: 0 10px;
+    width: 33.33%;
+    flex: 0 0 auto;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    gap: 10px; /* Add gap between elements */
+.content_set p,
+.content_set ul {
+    color: #616475;
+    font-size: 15px;
 }
 
-h3.card_title {
-    color: #017e84;
-    flex: 0 0 auto; /* Ensure it does not shrink or grow */
+.content_set h1,
+.content_set h2,
+.content_set h3 {
+    margin-bottom: 30px;
 }
 
-.dropdowns {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap; /* Allow wrapping if space is insufficient */
-    flex: 1; /* Take up remaining space */
+.content_set h4,
+.content_set h5,
+.content_set h6 {
+    margin-bottom: 15px;
 }
 
-.o_dashboard_select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    flex: 1; /* Allow the dropdown to take up available space */
-}
-
-.card-content {
-    margin-top: 10px;
-}
-
-.card-metrics {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    gap: 10px;
-}
-
-.metric {
+.box_1 {
+    /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important; */
     text-align: center;
-    flex: 1;
-    border: 1px solid #ccc;
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
 }
 
-.metric-value {
+.img_1 {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    border-radius: 100%;
+    margin: 0 auto;
+    /* margin-top: -65px; */
+    margin-bottom: 20px;
+}
+
+.img_1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sec_1 .col-md-4 {
+    margin-top: 20px;
+}
+
+.sec_1 h1,
+.sec_2 h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.sec_pad {
+    padding: 80px 0;
+}
+
+.pad_t {
+    padding-top: 80px;
+}
+
+.sec_pad {
+    padding-bottom: 80px;
+}
+
+.sec_2 {
+    background: #f9f9f9;
+}
+
+.sec_2 h3,
+.box_4 h4 {
+    position: relative !important;
+    padding: 10px 15px  !important;
+    background: #fff  !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1)  !important;
+    font-size: 24px  !important;
+    border-left: 5px solid  !important;
+    margin-bottom: 25px  !important;
+    margin-top: 40px  !important;
+}
+
+.sec_2 ul li {
+    margin-bottom: 10px;
+    font-family: "Arial";
+}
+
+.box_2 {
+    text-align: center;
+    background: #eee;
+    border-radius: 20px;
+    padding: 20px;
+    padding-bottom: 65px;
+    border: 1px solid #e1e1e1;
+}
+
+.box_2 img {
+    width: 300px;
+}
+
+.box_3 {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: -50px;
+    text-align: center;
+}
+
+.box_4 {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 9px 18px;
+    border: none;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 600;
+    background: #82306c;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.copy {
+    background: #82306c;
+    border-radius: 50px;
+    position: relative;
+    padding: 7px 15px;
+    text-align: left;
+    min-height: 42px;
+    padding-right: 80px;
+}
+
+.copy .btn {
+    background: #fff;
+    color: #82306c;
+    border-radius: 40px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+.copy p {
+    margin: 0;
+    color: #fff;
     font-size: 18px;
-    font-weight: bold;
-    display: block;
-    color: #017e84;
 }
 
-.metric-label {
-    font-size: 12px;
-    color: #017e84;
+.ul_set {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ul_set.ul_sft {
+    margin-top: 30px;
+}
+
+.ul_set.ul_sft li {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.ul_set.ul_sft li img {
+    width: 25px;
+    vertical-align: middle;
+    margin-right: 7px;
 }
