@@ -79,8 +79,7 @@
             'amazon_connector_inwizards/static/src/components/content_page.css',
             
         ],
-        'web.assets_frontend': [
-        ],
+        
     },
     
     "images" : ['static/description/banner.gif'],

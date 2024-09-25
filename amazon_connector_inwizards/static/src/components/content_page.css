@@ -131,14 +131,14 @@ h5 {
 
 .sec_2 h3,
 .box_4 h4 {
-    position: relative;
-    padding: 10px 15px;
-    background: #fff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    font-size: 24px;
-    border-left: 5px solid;
-    margin-bottom: 25px;
-    margin-top: 40px;
+    position: relative !important;
+    padding: 10px 15px  !important;
+    background: #fff  !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1)  !important;
+    font-size: 24px  !important;
+    border-left: 5px solid  !important;
+    margin-bottom: 25px  !important;
+    margin-top: 40px  !important;
 }
 
 .sec_2 ul li {
