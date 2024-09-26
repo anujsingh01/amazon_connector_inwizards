@@ -14,11 +14,11 @@
             Manage both FBA and FBM orders from a single interface in Odoo.
     """,
     'category': 'Sale',
-    'author': 'https://www.inwizards.com/',
+    'author': 'Inwizards Technology Pvt Ltd',
     'price' : '450',
     'currency' : 'EUR', 
     'maintainer' : '',
-    'website': '',  
+    'website': 'https://www.inwizards.com/',  
     "license": "AGPL-3",
     'depends': ['base', 'sale', 'stock', 'board', 'web'],
     'data': [
@@ -75,18 +75,8 @@
             '/amazon_connector_inwizards/static/src/components/amazon_dashboard.xml',
             '/amazon_connector_inwizards/static/src/components/custom.css',
             'amazon_connector_inwizards/static/src/components/amazon_dashboard.js',
-            'amazon_connector_inwizards/static/src/components/amazon_dashboard.xml',
-            'amazon_connector_inwizards/static/src/components/content_page.css',
-            'amazon_connector_inwizards/static/src/css/style.css',
-            
+            'amazon_connector_inwizards/static/src/components/amazon_dashboard.xml',           
         ],
-        'web.report_assets_common': [
-            'amazon_connector_inwizards/static/src/css/style.css',
-        ],
-        'web.report_assets_pdf': [
-            'amazon_connector_inwizards/static/src/css/style.css',
-        ],
-        
     },
     
     "images" : ['static/description/banner.gif'],
