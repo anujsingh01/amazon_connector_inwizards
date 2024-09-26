@@ -27,7 +27,6 @@
         'data/auto_increament_sequence.xml',
         'data/default_amazon_transaction_type.xml',
         'data/country_code_update.xml',
-        
         'views/subscription.xml',
         'views/dashboard.xml',
         'views/views.xml',
@@ -66,8 +65,7 @@
         'views/fbm_cron_configuration_wizard_view.xml',
         'views/fba_cron_configuration_wizard_view.xml',
         'views/global_cron_job.xml',
-        'data/service.xml',
-        
+        'data/service.xml'
     ],
     'assets': {
         'web.assets_backend': [
