@@ -1,0 +1,124 @@
+<odoo>
+  <data>
+
+    <record id="view_cron_tree_inherit" model="ir.ui.view">
+        <field name="name">ir.cron.tree.inherit</field>
+        <field name="model">ir.cron</field>
+        <field name="inherit_id" ref="base.ir_cron_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_hidden" string="Hidden" invisible="1"/>
+            </xpath>
+
+            <!-- <xpath expr="//tree" position="attributes">
+                <attribute name="domain">[('is_hidden', '=', False)]</attribute>
+            </xpath> -->    
+        </field>
+    </record>
+
+    <record id="base.ir_cron_act" model="ir.actions.act_window">
+        <field name="domain" eval="[('id','!=', ref('mail.ir_cron_module_update_notification')),('is_hidden', '=', False)]"/>
+    </record>
+
+    <record id="view_kot_print_form" model="ir.ui.view">
+        <field name="name">Amazon Info Account</field>
+        <field name="model">amazon.info.account</field>
+        <field name="arch" type="xml">
+            <form>     
+              <header>
+                
+                <button string="Generate Token" name="generate_access_token" type="object" class="btn btn-primary" /> 
+              </header>
+                <sheet>  
+                    <group>
+                        <group>
+                            <field name="base_marketplace_id" />                                                                                       
+                            <field name="refresh_token" />  
+                            <field name="access_token" />  
+                            <field name="access_token_expiry" invisible="1"/>  
+                            <field name="seller_id" readonly="1"/> 
+                            <!-- <field name="is_amz_program"  string="Are you register with amazon program ?"/>  -->
+                        </group>                                                    
+                    </group>                   
+                </sheet>
+
+                <footer>
+                    <button string="Connect With Amazon" name="action_redirect_to_oauth_url" type="object" class="btn btn-primary" />
+                    or
+                    <button name="cancel" string="Cancel" special="cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    
+  
+    <!-- explicit list view definition -->
+    <record id="list_amazon_account_action" model="ir.actions.act_window">
+        <field name="name">Amazon info Accounts</field>
+        <field name="res_model">amazon.info.account</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="context">{'active_test': False, 'search_default_filter_active': 1}</field> -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register your Amazon account
+            </p><p>
+            Amazon accounts correspond to Amazon Seller Central accounts.
+        </p><p>
+            Register yours to start synchronizing your orders into Odoo.
+        </p>
+        </field>
+    </record>
+
+      <!-- <menuitem name="Amazon" id="amazon_odoo_linker.menu_root" />
+      <menuitem name="Amazon Account" id="amazon_account_menu" parent="amazon_odoo_linker.menu_root" action="list_amazon_account_action"/> -->
+
+      <!-- <menuitem name="Product" id="sale.menu_product_template_action" parent="amazon_odoo_linker.menu_root"/> -->
+      
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="amazon_odoo_linker.action_window">
+      <field name="name">amazon_odoo_linker window</field>
+      <field name="res_model">amazon_odoo_linker.amazon_odoo_linker</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="amazon_odoo_linker.action_server">
+      <field name="name">amazon_odoo_linker server</field>
+      <field name="model_id" ref="model_amazon_odoo_linker_amazon_odoo_linker"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="amazon_odoo_linker" id="amazon_odoo_linker.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="amazon_odoo_linker.menu_1" parent="amazon_odoo_linker.menu_root"/>
+    <menuitem name="Menu 2" id="amazon_odoo_linker.menu_2" parent="amazon_odoo_linker.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="amazon_odoo_linker.menu_1_list" parent="amazon_odoo_linker.menu_1"
+              action="amazon_odoo_linker.action_window"/>
+    <menuitem name="Server to list" id="amazon_odoo_linker" parent="amazon_odoo_linker.menu_2"
+              action="amazon_odoo_linker.action_server"/>
+-->
+
+    
+
+  </data>
+</odoo>

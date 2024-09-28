@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+       
+        <!-- List view for Common Log Lines -->
+        <record id="view_common_log_lines_tree" model="ir.ui.view">
+            <field name="name">common.log.lines.ept.tree</field>
+            <field name="model">common.log.lines.ept</field>
+            <field name="arch" type="xml">
+                <tree string="Common Log Lines">
+                    <field name="order_ref"/>
+                    <field name="default_code"/>
+                    <field name="message"/>
+                    <field name="mismatch_details"/>
+                    <field name="model_id"/>
+                    <field name="write_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view for Common Log Lines -->
+        <record id="view_common_log_lines_form" model="ir.ui.view">
+            <field name="name">common.log.lines.ept.form</field>
+            <field name="model">common.log.lines.ept</field>
+            <field name="arch" type="xml">
+                <form string="Common Log Lines">
+                    <sheet>
+                        <group>
+                            <field name="order_ref"/>
+                            <field name="default_code"/>
+                            <field name="message"/>
+                             <field name="error_log"/>
+                            <field name="mismatch_details"/>
+                            <field name="model_id"/>
+                            <field name="write_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="log_lines_data_action" model="ir.actions.act_window">
+            <field name="name">Common Log Lines</field>
+            <field name="res_model">common.log.lines.ept</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- <menuitem name="Logs" id="amazon_logs_root_menuitem"  parent="amazon_odoo_linker.menu_root" />
+        <menuitem name="Log Lines" id="log_lines_data_menuitem"  parent="amazon_logs_root_menuitem" action="log_lines_data_action"/> -->
+
+    </data>
+</odoo>
