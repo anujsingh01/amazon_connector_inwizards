@@ -70,7 +70,7 @@ class AmazonInfoController(http.Controller):
         # Request and set the refresh token on the account and finalize the set up.
         try:
             amazon_utils.exchange_authorization_code(authorization_code, account)
-            import pdb;pdb.set_trace()
+            # import pdb;pdb.set_trace()
             amazon_manuitem = request.env['ir.config_parameter'].sudo().search([("complete_name", "=", "Amazon/Dashboard")])
             
             # account.action_update_available_marketplaces()
